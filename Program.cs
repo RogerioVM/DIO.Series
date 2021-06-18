@@ -50,9 +50,16 @@ namespace DIO.Series
 		private static void ExcluirSerie()
 		{
 			Console.Write("Digite o id da série: ");
+			
 			int indiceSerie = int.Parse(Console.ReadLine());
 
+			while(indiceSerie < 0 || indiceSerie == null)
+            {
+				Console.WriteLine("ID inválido, tente novamente");
+				indiceSerie++;
+            }
 			repositorio.Exclui(indiceSerie);
+
 		}
 
 		private static void VisualizarSerie()
